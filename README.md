@@ -3,7 +3,7 @@
 
 **University:** Hochschule Hamm-Lippstadt (HSHL)  
 **Course:** Embedded Systems Lab  
-**Lecturer:** Dr. Faezeh Pasandideh  
+**Lecturer:** Dr. Fatima Idrees  
 **Project Team:** Team Alpha D1  
 **Project Title:** Traffic Light System – First Scenario
 
