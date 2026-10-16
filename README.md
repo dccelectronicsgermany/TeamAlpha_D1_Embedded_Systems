@@ -14,7 +14,7 @@
 | No. | Name | Student ID |
 |---|---|---|
 | 1 | Daniel Chidi Chimezie | 1230515 |
-| 2 | Sumo Boiddo | 2220054 |
+| 2 | Sumon Boiddo | 2220054 |
 | 3 | Md. Tawhidur Rahman Tuhin | 2220060 |
 
 ---
