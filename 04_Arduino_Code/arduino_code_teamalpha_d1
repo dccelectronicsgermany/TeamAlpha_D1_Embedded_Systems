@@ -1,0 +1,88 @@
+
+enum State {
+  RED,
+  GREEN,
+  YELLOW
+};
+
+class TrafficLight {
+private:
+  const int redPin = 8;
+  const int yellowPin = 9;
+  const int greenPin = 10;
+
+  State state = RED;
+
+  const unsigned long t20 = 20000UL;
+  unsigned long lastChange = 0;
+
+public:
+  void setup() {
+    pinMode(redPin, OUTPUT);
+    pinMode(yellowPin, OUTPUT);
+    pinMode(greenPin, OUTPUT);
+
+    state = RED;
+    setRed();
+    lastChange = millis();
+  }
+
+  void setRed() {
+    digitalWrite(redPin, HIGH);
+    digitalWrite(yellowPin, LOW);
+    digitalWrite(greenPin, LOW);
+  }
+
+  void setGreen() {
+    digitalWrite(redPin, LOW);
+    digitalWrite(yellowPin, LOW);
+    digitalWrite(greenPin, HIGH);
+  }
+
+  void setYellow() {
+    digitalWrite(redPin, LOW);
+    digitalWrite(yellowPin, HIGH);
+    digitalWrite(greenPin, LOW);
+  }
+
+  void turnOff() {
+    digitalWrite(redPin, LOW);
+    digitalWrite(yellowPin, LOW);
+    digitalWrite(greenPin, LOW);
+  }
+
+  void update() {
+    unsigned long currentTime = millis();
+
+    if (currentTime - lastChange >= t20) {
+      switch (state) {
+        case RED:
+          state = GREEN;
+          setGreen();
+          break;
+
+        case GREEN:
+          state = YELLOW;
+          setYellow();
+          break;
+
+        case YELLOW:
+          state = RED;
+          setRed();
+          break;
+      }
+
+      lastChange = currentTime;
+    }
+  }
+};
+
+TrafficLight trafficLight;
+
+void setup() {
+  trafficLight.setup();
+}
+
+void loop() {
+  trafficLight.update();
+}
