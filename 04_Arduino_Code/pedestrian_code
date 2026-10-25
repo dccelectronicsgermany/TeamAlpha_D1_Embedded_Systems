@@ -1,0 +1,183 @@
+
+enum State {                         // Define the system states
+  RED,                              // Car RED, pedestrian RED
+  GREEN,                            // Car GREEN, pedestrian RED
+  YELLOW,                           // Car YELLOW, pedestrian RED
+  PED_GREEN                         // Car RED, pedestrian GREEN
+};
+
+class TrafficLight {                // Define TrafficLight class
+private:
+  const int carRedPin = 8;           // Car red LED on D8
+  const int carYellowPin = 9;        // Car yellow LED on D9
+  const int carGreenPin = 10;        // Car green LED on D10
+
+  const int pedRedPin = 11;          // Pedestrian red LED on D11
+  const int pedGreenPin = 12;        // Pedestrian green LED on D12
+  const int buttonPin = 13;          // Pedestrian button on D13
+
+  State state = RED;                 // Initial state is RED
+
+  const unsigned long t20 = 20000UL; // Normal time: 20 units
+  const unsigned long t10 = 10000UL; // Minimum car GREEN: 10 units
+  const unsigned long t5 = 5000UL;   // Minimum car YELLOW: 5 units
+  const unsigned long t13 = 13000UL; // Pedestrian GREEN: 13 units
+
+  unsigned long lastChange = 0;     // Time of last state change
+
+  bool pedestrianRequest = false;   // Store crossing request
+  bool lastButtonState = HIGH;      // Previous button reading
+
+  unsigned long lastDebounceTime = 0; // Last button signal change
+  const unsigned long debounceDelay = 30UL; // Debounce time
+  bool stableButtonState = HIGH;    // Stable button state
+
+public:
+
+  void setup() {                    // Initialize the system
+    pinMode(carRedPin, OUTPUT);      // Car red LED output
+    pinMode(carYellowPin, OUTPUT);   // Car yellow LED output
+    pinMode(carGreenPin, OUTPUT);    // Car green LED output
+
+    pinMode(pedRedPin, OUTPUT);      // Pedestrian red output
+    pinMode(pedGreenPin, OUTPUT);    // Pedestrian green output
+
+    pinMode(buttonPin, INPUT_PULLUP); // Button between D13 and GND
+
+    state = RED;                    // Start in RED state
+    setRed();                       // Activate car and pedestrian RED
+    lastChange = millis();          // Record starting time
+  }
+
+  void setRed() {                   // Car RED, pedestrian RED
+    digitalWrite(carRedPin, HIGH);  // Car RED ON
+    digitalWrite(carYellowPin, LOW); // Car YELLOW OFF
+    digitalWrite(carGreenPin, LOW); // Car GREEN OFF
+    digitalWrite(pedRedPin, HIGH);  // Pedestrian RED ON
+    digitalWrite(pedGreenPin, LOW); // Pedestrian GREEN OFF
+  }
+
+  void setGreen() {                 // Car GREEN, pedestrian RED
+    digitalWrite(carRedPin, LOW);   // Car RED OFF
+    digitalWrite(carYellowPin, LOW); // Car YELLOW OFF
+    digitalWrite(carGreenPin, HIGH); // Car GREEN ON
+    digitalWrite(pedRedPin, HIGH);  // Pedestrian RED ON
+    digitalWrite(pedGreenPin, LOW); // Pedestrian GREEN OFF
+  }
+
+  void setYellow() {                // Car YELLOW, pedestrian RED
+    digitalWrite(carRedPin, LOW);   // Car RED OFF
+    digitalWrite(carYellowPin, HIGH); // Car YELLOW ON
+    digitalWrite(carGreenPin, LOW); // Car GREEN OFF
+    digitalWrite(pedRedPin, HIGH);  // Pedestrian RED ON
+    digitalWrite(pedGreenPin, LOW); // Pedestrian GREEN OFF
+  }
+
+  void setPedGreen() {              // Car RED, pedestrian GREEN
+    digitalWrite(carRedPin, HIGH);  // Car RED ON
+    digitalWrite(carYellowPin, LOW); // Car YELLOW OFF
+    digitalWrite(carGreenPin, LOW); // Car GREEN OFF
+    digitalWrite(pedRedPin, LOW);   // Pedestrian RED OFF
+    digitalWrite(pedGreenPin, HIGH); // Pedestrian GREEN ON
+  }
+
+  void changeState(State newState) { // Change system state
+    state = newState;                // Save new state
+    lastChange = millis();          // Reset state timer
+
+    switch (state) {                 // Execute entry action
+      case RED:                      // Enter RED state
+        setRed();                    // Activate both RED LEDs
+        break;                       // Exit switch
+
+      case GREEN:                    // Enter GREEN state
+        setGreen();                  // Activate car GREEN
+        break;                       // Exit switch
+
+      case YELLOW:                   // Enter YELLOW state
+        setYellow();                 // Activate car YELLOW
+        break;                       // Exit switch
+
+      case PED_GREEN:                // Enter pedestrian GREEN
+        pedestrianRequest = false;  // Clear served request
+        setPedGreen();               // Allow pedestrian crossing
+        break;                       // Exit switch
+    }
+  }
+
+  void checkButton() {              // Detect button press
+    bool reading = digitalRead(buttonPin); // Read D13
+
+    if (reading != lastButtonState) { // Detect signal change
+      lastDebounceTime = millis();  // Start debounce interval
+    }
+
+    if (millis() - lastDebounceTime >= debounceDelay) {
+      if (reading != stableButtonState) {
+        stableButtonState = reading; // Accept stable reading
+
+        if (stableButtonState == LOW && state != PED_GREEN) {
+          pedestrianRequest = true; // Store pedestrian request
+        }
+      }
+    }
+
+    lastButtonState = reading;       // Remember latest reading
+  }
+
+  void update() {                    // Run the state machine
+    checkButton();                   // Check pedestrian button
+
+    unsigned long elapsed = millis() - lastChange; // State time
+
+    switch (state) {                 // Evaluate current state
+
+      case RED:                      // Car RED, pedestrian RED
+
+        if (pedestrianRequest) {     // Crossing requested
+          changeState(PED_GREEN);   // Serve request while car RED
+        }
+        else if (elapsed >= t20) {   // Normal RED time finished
+          changeState(GREEN);       // Change car to GREEN
+        }
+        break;                       // Exit RED case
+
+      case GREEN:                    // Car GREEN, pedestrian RED
+
+        if (pedestrianRequest && elapsed >= t10) {
+          changeState(YELLOW);      // Early transition after 10 units
+        }
+        else if (elapsed >= t20) {   // Normal 20 units finished
+          changeState(YELLOW);      // Change car to YELLOW
+        }
+        break;                       // Exit GREEN case
+
+      case YELLOW:                   // Car YELLOW, pedestrian RED
+
+        if (pedestrianRequest && elapsed >= t5) {
+          changeState(RED);         // Early transition after 5 units
+        }
+        else if (elapsed >= t20) {   // Normal 20 units finished
+          changeState(RED);         // Change car to RED
+        }
+        break;                       // Exit YELLOW case
+
+      case PED_GREEN:                // Car RED, pedestrian GREEN
+
+        if (elapsed >= t13) {        // Crossing time completed
+          changeState(RED);         // Return to RED state
+        }
+        break;                       // Exit pedestrian case
+    }
+  }
+};
+
+TrafficLight trafficLight;           // Create TrafficLight object
+
+void setup() {                       // Arduino setup function
+  trafficLight.setup();              // Initialize traffic lights
+}
+
+void loop() {                        // Arduino repeating loop
+  trafficLight.update();             // Update state machine
+}
