@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="Draw.io XML" version="24.7.17" type="device">
+  <diagram id="02" name="02 State diagram">
+    <mxGraphModel dx="1660" dy="1260" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1660" pageHeight="1260" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n2" value="State diagram" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=30;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="32" width="1560" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="Four code states. e = millis() − lastChange. 1 time unit = 1 second in the supplied code." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="86" width="1560" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#FCEEEE;strokeColor=#6683A0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="100" y="310" width="340" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="RED" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=22;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="115" y="324" width="310" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=none;endFill=0;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="372" as="sourcePoint" />
+            <mxPoint x="440" y="372" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n7" value="entry / setRed()&#10;Car: RED&#10;Pedestrian: RED" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="118" y="388" width="304" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#EAF7ED;strokeColor=#6683A0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="310" width="340" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="n9" value="GREEN" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=22;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="665" y="324" width="310" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n10" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=none;endFill=0;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="372" as="sourcePoint" />
+            <mxPoint x="990" y="372" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n11" value="entry / setGreen()&#10;Car: GREEN&#10;Pedestrian: RED" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="668" y="388" width="304" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="n12" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#FFF6DC;strokeColor=#6683A0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="310" width="340" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="n13" value="YELLOW" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=22;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="324" width="310" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n14" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=none;endFill=0;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1200" y="372" as="sourcePoint" />
+            <mxPoint x="1540" y="372" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n15" value="entry / setYellow()&#10;Car: YELLOW&#10;Pedestrian: RED" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1218" y="388" width="304" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="n16" value="" style="rounded=1;arcSize=12;whiteSpace=wrap;html=0;fillColor=#EAF7ED;strokeColor=#6683A0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="100" y="830" width="340" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="n17" value="PED_GREEN" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=22;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="115" y="844" width="310" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="n18" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=none;endFill=0;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="892" as="sourcePoint" />
+            <mxPoint x="440" y="892" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n19" value="entry / pedestrianRequest = false&#10;entry / setPedGreen()&#10;Car: RED&#10;Pedestrian: GREEN" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="118" y="908" width="304" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="n20" value="" style="ellipse;fillColor=#23384D;strokeColor=#23384D;" vertex="1" parent="1">
+          <mxGeometry x="48" y="397" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n21" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=open;endFill=0;dashed=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="68" y="407" as="sourcePoint" />
+            <mxPoint x="100" y="407" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n22" value="setup(): state = RED; setRed();&#10;lastChange = millis()" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="245" width="385" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n23" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=open;endFill=0;dashed=0;exitX=1;exitY=0.476;exitDx=0;exitDy=0;entryX=0;entryY=0.476;entryDx=0;entryDy=0;" edge="1" parent="1" source="n4" target="n8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="410" as="sourcePoint" />
+            <mxPoint x="650" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n24" value="[!pedestrianRequest&#10; &amp;&amp; e ≥ 20 s]" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="451" y="328" width="186" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="n25" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=open;endFill=0;dashed=0;exitX=1;exitY=0.476;exitDx=0;exitDy=0;entryX=0;entryY=0.476;entryDx=0;entryDy=0;" edge="1" parent="1" source="n8" target="n12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="990" y="410" as="sourcePoint" />
+            <mxPoint x="1200" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n26" value="[e ≥ 20 s OR&#10; (pedestrianRequest&#10;  AND e ≥ 10 s)]" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1001" y="308" width="186" height="101" as="geometry" />
+        </mxCell>
+        <mxCell id="n27" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=open;endFill=0;dashed=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="n12" target="n4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1370" y="310" as="sourcePoint" />
+            <mxPoint x="270" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1370" y="210" />
+              <mxPoint x="270" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n28" value="[e ≥ 20 s OR (pedestrianRequest AND e ≥ 5 s)]" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="480" y="159" width="680" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="n29" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=open;endFill=0;dashed=0;exitX=0.206;exitY=1;exitDx=0;exitDy=0;entryX=0.206;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="n4" target="n16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="520" as="sourcePoint" />
+            <mxPoint x="170" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n30" value="[pedestrianRequest]" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="54" y="648" width="260" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="n31" style="edgeStyle=none;rounded=0;html=0;strokeColor=#23384D;strokeWidth=1.5;endArrow=open;endFill=0;dashed=0;exitX=0.824;exitY=0;exitDx=0;exitDy=0;entryX=0.824;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="n16" target="n4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="830" as="sourcePoint" />
+            <mxPoint x="380" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n32" value="[e ≥ 13 s]" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="304" y="732" width="153" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="n33" value="" style="rounded=0;arcSize=12;whiteSpace=wrap;html=0;fillColor=#F2F5F8;strokeColor=#6683A0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="535" width="890" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="n34" value="Button processing — before every switch evaluation" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="666" y="547" width="858" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="n35" value="checkButton() accepts a reading after ≥ 30 ms without a raw signal change.&#10;A stable HIGH → LOW edge sets pedestrianRequest = true when state ≠ PED_GREEN.&#10;The request stays stored after button release; presses during PED_GREEN are ignored.&#10;Holding the button does not repeatedly create requests." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="666" y="583" width="858" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="n36" value="" style="rounded=0;arcSize=12;whiteSpace=wrap;html=0;fillColor=#F2F5F8;strokeColor=#6683A0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="747" width="890" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="n37" value="Transition semantics" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="666" y="759" width="858" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="n38" value="Each arrow calls changeState(target): state = target; lastChange = millis();&#10;then the target entry action runs. No guard true → stay in the current state.&#10;RED → PED_GREEN has no timed wait. After YELLOW → RED, the stored request&#10;is served on the next update(). No additional all-red delay is implemented." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="666" y="795" width="858" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="n39" value="" style="rounded=0;arcSize=12;whiteSpace=wrap;html=0;fillColor=#F2F5F8;strokeColor=#6683A0;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="959" width="890" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="n40" value="Safety and timing" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=17;fontColor=#18324D;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="666" y="971" width="858" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="n41" value="GREEN ⇒ pedestrian RED. PED_GREEN ⇒ car RED.&#10;On a request: car GREEN lasts at least 10 s; car YELLOW lasts at least 5 s.&#10;Without a request: RED, GREEN and YELLOW each last 20 s.&#10;PED_GREEN lasts 13 s, then RED starts a new 20 s timer unless another request arrives." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="666" y="1007" width="858" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="n42" value="Timing uses state-entry time.&#10;A late request does not restart&#10;the 10 s / 5 s minimum." style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=16;fontColor=#23384D;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1090" width="440" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="n43" value="TASK 2  /  Traffic Light System  /  Model of the supplied Arduino code" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=top;spacing=0;fontFamily=Helvetica;fontSize=13;fontColor=#63788A;fontStyle=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1218" width="1560" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
